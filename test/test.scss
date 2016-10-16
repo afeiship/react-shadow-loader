@@ -1,4 +1,4 @@
-@import "../dist/webkit-sassui-layout-lmr.scss";
+@import "../dist/layout-lmr.scss";
 .test-layout-lmr{
   @include layout-lmr(200px,100px);
   min-height: 200px;
