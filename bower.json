@@ -1,0 +1,24 @@
+{
+  "name": "webkit-sassui-layout-lmr",
+  "description": "webkit sass ui module layout left/middle/right.",
+  "main": "dist/webkit-sassui-layout-lmr.js",
+  "authors": [
+    "afei"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "next"
+  ],
+  "homepage": "https://github.com/afeiship/webkit-sassui-layout-lmr",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ]
+}
