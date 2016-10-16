@@ -1,0 +1,41 @@
+/*webkit-sassui-layout-lmr Start*/
+/*webkit-sassui-layout-lmr End*/
+.test-layout-lmr {
+  position: relative;
+  min-height: 200px;
+}
+
+.test-layout-lmr > .left,
+.test-layout-lmr > .middle,
+.test-layout-lmr > .right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.test-layout-lmr > .left {
+  left: 0;
+  width: 200px;
+}
+
+.test-layout-lmr > .middle {
+  left: 200px;
+  right: 100px;
+}
+
+.test-layout-lmr > .right {
+  right: 0;
+  width: 100px;
+}
+
+.test-layout-lmr .left {
+  background: pink;
+}
+
+.test-layout-lmr .middle {
+  background: green;
+}
+
+.test-layout-lmr .right {
+  background: #eee;
+}

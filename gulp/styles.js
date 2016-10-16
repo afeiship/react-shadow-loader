@@ -11,9 +11,8 @@
 
   //styles
   gulp.task('styles',function() {
-    return gulp.src('src/scss/**')
-      .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
-      .pipe(gulp.dest('dist/styles'));
+    return gulp.src('src/*.scss')
+      .pipe(gulp.dest('dist'));
   });
 
 }());

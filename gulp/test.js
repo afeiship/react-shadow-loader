@@ -9,10 +9,12 @@
     pattern: ['gulp-*', 'gulp.*', 'del']
   });
 
-  gulp.task('build', ['clean'], function() {
-    gulp.start(['styles']);
+  //styles
+  gulp.task('test',function() {
+    return gulp.src('test/test.scss')
+      .pipe($.sass({outputStyle: 'expanded'}).on('error', $.sass.logError))
+      .pipe(gulp.dest('test'));
   });
-
 
 
 }());
