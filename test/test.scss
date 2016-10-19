@@ -1,6 +1,22 @@
-@import "../dist/layout-lmr.scss";
+@import "../dist/webkit-sassui-layout-lmr.scss";
 .test-layout-lmr{
-  @include layout-lmr(200px,100px);
+  @include webkit-sassui-layout-lmr(200px,100px);
+  min-height: 200px;
+  .left{
+    background: pink;
+  }
+  .middle{
+    background: green;
+  }
+  .right{
+    background:#eee;
+  }
+}
+
+
+
+.test-layout-lmr2{
+  @include webkit-sassui-layout-lmr-flex(200px,100px);
   min-height: 200px;
   .left{
     background: pink;

@@ -11,8 +11,16 @@
 
   //styles
   gulp.task('styles',function() {
-    return gulp.src('src/*.scss')
-      .pipe(gulp.dest('dist'));
-  });
+  return gulp.src('src/*.scss')
+    .pipe(gulp.dest('dist'))
+    .pipe($.sass({outputStyle: 'expanded'}).on('error', $.sass.logError))
+    .pipe(gulp.dest('dist'))
+    .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
+    .pipe($.rename({
+      extname:'.min.css'
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
 
 }());

@@ -1,0 +1,53 @@
+/*webkit-sassui-layout-lmr Start*/
+@import "../bower_components/webkit-sass-mixins/dist/webkit-sass-mixins";
+
+.webkit-sassui-layout-lmr{
+  position: relative;
+  >.left,
+  >.middle,
+  >.right{
+    position: absolute;
+    top:0;
+    bottom:0;
+  }
+  >.left{
+    left:0;
+  }
+  >.right{
+    right:0;
+  }
+}
+
+.webkit-sassui-layout-lmr-flex{
+  @include display-flex;
+  >.middle{
+    @include flex(1);
+  }
+}
+
+@mixin webkit-sassui-layout-lmr($inLeftWidth,$inRightWidth){
+  @extend .webkit-sassui-layout-lmr;
+  >.left{
+    width:$inLeftWidth;
+  }
+  >.middle{
+    left:$inLeftWidth;
+    right:$inRightWidth;
+  }
+  >.right{
+    width:$inRightWidth;
+  }
+}
+
+@mixin webkit-sassui-layout-lmr-flex($inLeftWidth,$inRightWidth){
+  @extend .webkit-sassui-layout-lmr-flex;
+  >.left{
+    width:$inLeftWidth;
+  }
+  >.right{
+    width:$inRightWidth;
+  }
+}
+
+
+/*webkit-sassui-layout-lmr End*/
