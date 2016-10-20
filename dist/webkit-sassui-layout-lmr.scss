@@ -1,53 +1,144 @@
 /*webkit-sassui-layout-lmr Start*/
 @import "../bower_components/webkit-sass-mixins/dist/webkit-sass-mixins";
 
-.webkit-sassui-layout-lmr{
-  position: relative;
-  >.left,
-  >.middle,
-  >.right{
-    position: absolute;
-    top:0;
-    bottom:0;
+.webkit-sassui-layout-lrrl-float {
+  &[left-auto]>.left,
+  &[right-auto]>.right{
+    &[overflow] {
+      overflow: hidden;
+    }
   }
-  >.left{
-    left:0;
+  
+  &[right-auto] {
+    >.left{
+      float: left;
+    }
   }
-  >.right{
-    right:0;
+
+  &[left-auto] {
+    .right{
+      float: right;
+    }
   }
 }
 
-.webkit-sassui-layout-lmr-flex{
+.webkit-sassui-layout-lmr-position {
+  position: relative;
+
+  > .middle,
+  > .right,
+  > .left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
+  > .left {
+    left: 0;
+  }
+
+  > .right {
+    right: 0;
+  }
+}
+
+.webkit-sassui-layout-lmr-flex {
   @include display-flex;
-  >.middle{
+  &[flex-left]>.left,
+  &[flex-middle]>.middle,
+  &[flex-right]>.right{
     @include flex(1);
   }
 }
 
-@mixin webkit-sassui-layout-lmr($inLeftWidth,$inRightWidth){
-  @extend .webkit-sassui-layout-lmr;
-  >.left{
-    width:$inLeftWidth;
-  }
-  >.middle{
-    left:$inLeftWidth;
-    right:$inRightWidth;
-  }
+.webkit-sassui-layout-lmr-table{
+  display: table;
+  >.left,
+  >.middle,
   >.right{
-    width:$inRightWidth;
+    display: table-cell;
+    vertical-align: top;
   }
 }
 
-@mixin webkit-sassui-layout-lmr-flex($inLeftWidth,$inRightWidth){
+@mixin webkit-sassui-layout-lrrl-float($inLeftWidth:auto,$inRightWidth:auto,$inGap:10px) {
+  @include mini-clearfix;
+  @if $inRightWidth==auto {
+     @extend .webkit-sassui-layout-lrrl-float[right-auto];
+
+    > .left {
+      width: $inLeftWidth;
+      margin-right: $inGap;
+    }
+  }
+  @else {
+    @extend .webkit-sassui-layout-lrrl-float[left-auto];
+
+    > .right {
+      width: $inRightWidth;
+      margin-left: $inGap;
+    }
+  }
+}
+
+@mixin webkit-sassui-layout-lmr-position($inLeftWidth:auto,$inMiddleWidth:auto,$inRightWidth:auto) {
+   @extend .webkit-sassui-layout-lmr-position;
+  //left right layout:
+  @if $inLeftWidth==auto {
+    $inRightWidth: 0;
+  }
+
+  @if $inRightWidth==auto {
+    $inLeftWidth: 0;
+  }
+
+  > .left {
+    width: $inLeftWidth;
+  }
+
+  > .middle {
+    left: $inLeftWidth;
+    right: $inRightWidth;
+  }
+
+  > .right {
+    width: $inRightWidth;
+  }
+}
+
+@mixin webkit-sassui-layout-lmr-flex($inLeftWidth:auto,$inMiddleWidth:auto,$inRightWidth:auto) {
   @extend .webkit-sassui-layout-lmr-flex;
-  >.left{
-    width:$inLeftWidth;
+  @if $inLeftWidth==auto {
+    $inRightWidth: 0;
+    @extend .webkit-sassui-layout-lmr-flex[flex-left];
   }
-  >.right{
-    width:$inRightWidth;
+  @if $inMiddleWidth==auto {
+    @extend .webkit-sassui-layout-lmr-flex[flex-middle];
+  }
+  @if $inRightWidth==auto {
+    $inLeftWidth: 0;
+    @extend .webkit-sassui-layout-lmr-flex[flex-right];
+  }
+
+  > .left {
+    width: $inLeftWidth;
+  }
+
+  > .right {
+    width: $inRightWidth;
   }
 }
 
 
+
+@mixin webkit-sassui-layout-lmr-table($inLeftWidth:auto,$inMiddleWidth:auto,$inRightWidth:auto){
+  @extend .webkit-sassui-layout-lmr-table;
+  > .left {
+    width: $inLeftWidth;
+  }
+
+  > .right {
+    width: $inRightWidth;
+  }
+}
 /*webkit-sassui-layout-lmr End*/
