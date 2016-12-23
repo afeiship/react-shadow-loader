@@ -1,5 +1,5 @@
 /*webkit-sassui-layout-lmr Start*/
-@import "../bower_components/webkit-sass-mixins/dist/webkit-sass-mixins";
+@import "bower_components/webkit-sass-mixins/dist/webkit-sass-mixins";
 
 .webkit-sassui-layout-lrrl-float {
   &[left-auto]>.left,
@@ -8,7 +8,7 @@
       overflow: hidden;
     }
   }
-  
+
   &[right-auto] {
     >.left{
       float: left;
@@ -51,6 +51,21 @@
   }
 }
 
+.webkit-sassui-layout-lrauto-flex{
+  @include display-flex;
+  >.right{
+    @include flex(1);
+  }
+}
+
+
+.webkit-sassui-layout-rlauto-flex{
+  @include display-flex;
+  >.left{
+    @include flex(1);
+  }
+}
+
 .webkit-sassui-layout-lmr-table{
   display: table;
   >.left,
@@ -80,6 +95,7 @@
     }
   }
 }
+
 
 @mixin webkit-sassui-layout-lmr-position($inLeftWidth:auto,$inMiddleWidth:auto,$inRightWidth:auto) {
    @extend .webkit-sassui-layout-lmr-position;
@@ -126,6 +142,21 @@
 
   > .right {
     width: $inRightWidth;
+  }
+}
+
+
+@mixin webkit-sassui-layout-lrauto-flex($inLeftWidth) {
+  @extend .webkit-sassui-layout-lrauto-flex;
+  >.left{
+    width:$inLeftWidth;
+  }
+}
+
+@mixin webkit-sassui-layout-rlauto-flex($inLeftWidth) {
+  @extend .webkit-sassui-layout-rlauto-flex;
+  >.right{
+    width:$inLeftWidth;
   }
 }
 
