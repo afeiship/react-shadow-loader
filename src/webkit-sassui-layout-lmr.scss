@@ -146,17 +146,19 @@
 }
 
 
-@mixin webkit-sassui-layout-lrauto-flex($inLeftWidth) {
+@mixin webkit-sassui-layout-lrauto-flex($inLeftWidth,$inGap:10px) {
   @extend .webkit-sassui-layout-lrauto-flex;
   >.left{
     width:$inLeftWidth;
+    margin-right: $inGap;
   }
 }
 
-@mixin webkit-sassui-layout-rlauto-flex($inLeftWidth) {
+@mixin webkit-sassui-layout-rlauto-flex($inLeftWidth,$inGap:10px) {
   @extend .webkit-sassui-layout-rlauto-flex;
   >.right{
     width:$inLeftWidth;
+    margin-left: $inGap;
   }
 }
 
