@@ -1,6 +1,6 @@
 {
   "name": "@jswork/react-shadow-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -34,5 +34,12 @@
   },
   "dependencies": {
     "@jswork/visible-element": "^1.0.1"
-  }
+  },
+  "keywords": [
+    "gradient",
+    "loader",
+    "radial",
+    "react",
+    "shadow"
+  ]
 }
