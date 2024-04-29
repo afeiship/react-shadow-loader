@@ -8,7 +8,7 @@ function App() {
   const handleShow = () => setVisible(true);
   const handleHide = () => setVisible(false);
   return (
-    <div className="relative h-[1000px] overflow-hidden debug-red">
+    <div className="relative h-[1000px] overflow-hidden">
       <h1>react-shadow-loader</h1>
       <ReactShadowLoader visible={visible} onClose={handleHide} />
 
