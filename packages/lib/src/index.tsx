@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import VisibleElement, { VisibleState } from '@jswork/visible-element';
+import VisibleElement from '@jswork/visible-element';
 import React, { Component, HTMLAttributes } from 'react';
 // @ts-ignore
 import SpinnerSvg from './spinner-1s-200px.svg?svgr';
@@ -16,10 +16,6 @@ export type ReactShadowLoaderProps = {
    * The visible value.
    */
   visible?: boolean;
-  /**
-   * The show callback.
-   */
-  onClose?: () => void;
   /**
    * We can use fixed position or absolute position.
    */
@@ -41,7 +37,7 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
     const { visible } = this.props;
     const { current } = this.rootRef;
     if (!current) return;
-    this.rootVe = new VisibleElement(current, { onChange: this.handleVeChange });
+    this.rootVe = new VisibleElement(current);
     this.rootVe.to(visible!);
   }
 
@@ -50,10 +46,6 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
     this.rootVe.to(visible!);
     return true;
   }
-
-  handleVeChange = (status: VisibleState) => {
-    if (status === 'closed') this.props.onClose?.();
-  };
 
   render() {
     const { className, visible, fixed, ...rest } = this.props;

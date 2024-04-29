@@ -1,4 +1,4 @@
-import React from'react';
+import React from 'react';
 import ReactShadowLoader from '@jswork/react-shadow-loader/src';
 import './index.css';
 import '@jswork/react-shadow-loader/src/style.scss';
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="relative h-[1000px] overflow-hidden">
       <h1>react-shadow-loader</h1>
-      <ReactShadowLoader visible={visible} onClose={handleHide} />
+      <ReactShadowLoader visible={visible} />
 
       <nav className="absolute top-40 left-0 right-0 p-4 bg-gray-100 x-4 z-10 *:p-2 *:bg-gray-200">
         <button onClick={handleShow}>Show</button>
