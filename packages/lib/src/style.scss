@@ -1,0 +1,83 @@
+.react-shadow-loader {
+  position: absolute;
+  top: -150px;
+  width: 100%;
+  height: 300px;
+  background: radial-gradient(closest-side, rgba(0, 10, 40, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+  transition: background-color 0.3s;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__spinner {
+    position: absolute;
+    top: 175px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    &[date-visible="true"] {
+      animation: spinner-in 0.8s;
+    }
+    &[date-visible="false"] {
+      animation: spinner-out 0.8s;
+    }
+
+    @keyframes spinner-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes spinner-out {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+
+  &[data-fixed="true"] {
+    position: fixed;
+  }
+
+  &[data-fixed="false"] {
+    position: absolute;
+  }
+
+  &[data-visible="true"] {
+    animation: loader-in 0.3s;
+  }
+
+  &[data-visible="false"] {
+    animation: loader-out 0.3s;
+  }
+
+  @keyframes loader-in {
+    0% {
+      top: -300px;
+    }
+    100% {
+      top: -150px;
+    }
+  }
+
+  @keyframes loader-out {
+    0% {
+      top: -150px;
+    }
+    100% {
+      top: -300px;
+    }
+  }
+}

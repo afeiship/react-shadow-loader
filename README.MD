@@ -1,2 +1,2 @@
-#webkit-sassui-layout-lmr
-> webkit sass ui module layout left/middle/right.
+# react-shadow-loader
+> A shadow loader for react.
