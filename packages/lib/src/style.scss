@@ -6,7 +6,7 @@
   background: radial-gradient(closest-side, rgba(0, 10, 40, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   transition: background-color 0.3s;
 
-  &[hidden] {
+  [hidden] {
     display: none;
   }
 
@@ -21,30 +21,6 @@
     height: 50px;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 4px;
-    &[date-visible="true"] {
-      animation: spinner-in 0.8s;
-    }
-    &[date-visible="false"] {
-      animation: spinner-out 0.8s;
-    }
-
-    @keyframes spinner-in {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes spinner-out {
-      0% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
   }
 
   &[data-fixed="true"] {
@@ -66,18 +42,22 @@
   @keyframes loader-in {
     0% {
       top: -300px;
+      opacity: 0;
     }
     100% {
       top: -150px;
+      opacity: 1;
     }
   }
 
   @keyframes loader-out {
     0% {
       top: -150px;
+      opacity: 1;
     }
     100% {
       top: -300px;
+      opacity: 0;
     }
   }
 }
