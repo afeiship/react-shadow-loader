@@ -1,8 +1,9 @@
 .react-shadow-loader {
+  font-size: 10px;
   position: absolute;
-  top: -150px;
+  top: -15em;
   width: 100%;
-  height: 300px;
+  height: 30em;
   background: radial-gradient(closest-side, rgba(0, 10, 40, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   transition: background-color 0.3s;
 
@@ -12,15 +13,15 @@
 
   &__spinner {
     position: absolute;
-    top: 175px;
+    top: 17.5em;
     left: 0;
     right: 0;
     margin: auto;
     transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
+    width: 5em;
+    height: 5em;
     background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 4px;
+    border-radius: 0.4em;
   }
 
   &[data-fixed="true"] {
@@ -41,22 +42,22 @@
 
   @keyframes loader-in {
     0% {
-      top: -300px;
+      top: -30em;
       opacity: 0;
     }
     100% {
-      top: -150px;
+      top: -15em;
       opacity: 1;
     }
   }
 
   @keyframes loader-out {
     0% {
-      top: -150px;
+      top: -15em;
       opacity: 1;
     }
     100% {
-      top: -300px;
+      top: -30em;
       opacity: 0;
     }
   }
