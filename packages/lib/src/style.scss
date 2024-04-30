@@ -20,9 +20,15 @@
     transform: translateX(-50%);
     width: 4em;
     height: 4em;
+    padding: 0.6em;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 0.4em;
-    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+    //box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, .05), 0 4px 6px -2px rgba(0, 0, 0, .03);
+    img{
+      width: 2.4rem;
+      animation: animate-spin 1s linear infinite;
+    }
   }
 
   &[data-fixed="true"] {
@@ -60,6 +66,15 @@
     100% {
       top: -30em;
       opacity: 0;
+    }
+  }
+
+  @keyframes animate-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 }

@@ -58,8 +58,9 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
         className={cx(CLASS_NAME, className)}
         {...rest}
       >
-        <img className={`${CLASS_NAME}__spinner`} src={SpinnerSvg} alt="loading"
-             role="spinbutton" />
+        <div className={`${CLASS_NAME}__spinner`}>
+          <img src={SpinnerSvg} alt="loading" />
+        </div>
       </div>
     );
   }
