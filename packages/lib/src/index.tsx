@@ -41,10 +41,10 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
     this.rootVe.to(visible!);
   }
 
-  shouldComponentUpdate(nextProps: ReactShadowLoaderProps) {
-    const { visible } = nextProps;
+  componentDidUpdate(prevProps: ReactShadowLoaderProps) {
+    const { visible } = this.props;
+    if (visible === prevProps.visible) return;
     this.rootVe?.to(visible!);
-    return true;
   }
 
   render() {

@@ -4,7 +4,7 @@ import './index.css';
 import '@jswork/react-shadow-loader/src/style.scss';
 
 function App() {
-  const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = React.useState(false);
   const handleShow = () => setVisible(true);
   const handleHide = () => setVisible(false);
   return (
