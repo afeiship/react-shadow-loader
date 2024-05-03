@@ -1,9 +1,9 @@
 .react-shadow-loader {
-  font-size: 10px;
+  font-size: 20px;
   position: absolute;
-  top: -15em;
+  top: -7.5em;
   width: 100%;
-  height: 30em;
+  height: 15em;
   background: radial-gradient(closest-side, rgba(0, 10, 40, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   transition: background-color 0.3s;
 
@@ -13,20 +13,20 @@
 
   &__spinner {
     position: absolute;
-    top: 17.5em;
+    top: 8.75em;
     left: 0;
     right: 0;
     margin: auto;
     transform: translateX(-50%);
-    width: 4em;
-    height: 4em;
-    padding: 0.6em;
+    width: 2em;
+    height: 2em;
+    padding: 0.3em;
     background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 0.4em;
-    box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, .05), 0 4px 6px -2px rgba(0, 0, 0, .03);
+    border-radius: 0.2em;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 0.5em 0.75em -0.15em rgba(0, 0, 0, .05), 0 0.2em 0.3em -0.1em rgba(0, 0, 0, .03);
 
     img {
-      width: 2.4rem;
+      width: 1.4em;
       animation: animate-spin 1s linear infinite;
     }
   }
@@ -49,22 +49,22 @@
 
   @keyframes loader-in {
     0% {
-      top: -30em;
+      top: -15em;
       opacity: 0;
     }
     100% {
-      top: -15em;
+      top: -7.5em;
       opacity: 1;
     }
   }
 
   @keyframes loader-out {
     0% {
-      top: -15em;
+      top: -7.5em;
       opacity: 1;
     }
     100% {
-      top: -30em;
+      top: -15em;
       opacity: 0;
     }
   }
