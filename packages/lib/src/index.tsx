@@ -20,6 +20,10 @@ export type ReactShadowLoaderProps = {
    * We can use fixed position or absolute position.
    */
   fixed?: boolean;
+  /**
+   * The z-index value.
+   */
+  zIndex?: number;
 } & HTMLAttributes<HTMLDivElement>;
 
 export default class ReactShadowLoader extends Component<ReactShadowLoaderProps> {
@@ -28,6 +32,7 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
   static defaultProps = {
     visible: false,
     fixed: false,
+    zIndex: 100,
   };
 
   private rootRef = React.createRef<HTMLDivElement>();
@@ -48,7 +53,7 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
   }
 
   render() {
-    const { className, visible, fixed, ...rest } = this.props;
+    const { className, visible, fixed, style, zIndex, ...rest } = this.props;
 
     return (
       <div
@@ -56,9 +61,15 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
         data-component={CLASS_NAME}
         data-fixed={fixed}
         className={cx(CLASS_NAME, className)}
+        style={{
+          zIndex,
+          ...style,
+        }}
         {...rest}
       >
-        <div className={`${CLASS_NAME}__spinner`}>
+        <div className={`${CLASS_NAME}__spinner`} style={{
+          zIndex: zIndex! + 1,
+        }}>
           <img src={SpinnerSvg} alt="loading" />
         </div>
       </div>
