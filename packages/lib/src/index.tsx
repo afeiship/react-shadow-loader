@@ -36,7 +36,7 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
   };
 
   private rootRef = React.createRef<HTMLDivElement>();
-  private rootVe: VisibleElement;
+  private rootVe: VisibleElement = null as any;
 
   componentDidMount() {
     const { visible } = this.props;
