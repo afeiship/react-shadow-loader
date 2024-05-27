@@ -1,6 +1,6 @@
 {
   "name": "@jswork/react-shadow-loader",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -40,6 +40,9 @@
     "loader",
     "radial",
     "react",
-    "shadow"
+    "shadow",
+    "query",
+    "react-query",
+    "rc-query"
   ]
 }
