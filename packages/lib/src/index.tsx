@@ -25,6 +25,14 @@ export type ReactShadowLoaderProps = {
    */
   loader?: ReactNode;
   /**
+   * Whether the overlay can be through or not.
+   */
+  permeable?: boolean;
+  /**
+   * Whether the shadowy effect is enabled or not.
+   */
+  shadowy?: boolean;
+  /**
    * The z-index value.
    */
   zIndex?: number;
@@ -62,12 +70,15 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
   }
 
   render() {
-    const { className, visible, fixed, style, zIndex, loader, ...rest } = this.props;
+    const { className, visible, fixed, style, zIndex, loader, permeable, shadowy, ...rest } = this.props;
 
     return (
       <div
         ref={this.rootRef}
+        hidden
         data-component={CLASS_NAME}
+        data-permeable={permeable}
+        data-shadowy={shadowy}
         data-fixed={fixed}
         className={cx(CLASS_NAME, className)}
         style={{
