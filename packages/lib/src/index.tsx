@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import VisibleElement from '@jswork/visible-element';
-import React, { Component, HTMLAttributes } from 'react';
+import React, { Component, HTMLAttributes, ReactNode } from 'react';
 // @ts-ignore
 import SpinnerSvg from './spinner-1s-200px.svg?svgr';
 
@@ -21,6 +21,10 @@ export type ReactShadowLoaderProps = {
    */
   fixed?: boolean;
   /**
+   * The style of the component.
+   */
+  loader?: ReactNode;
+  /**
    * The z-index value.
    */
   zIndex?: number;
@@ -33,10 +37,15 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
     visible: false,
     fixed: false,
     zIndex: 100,
+    loader: <img className="is-svg-spinner" src={SpinnerSvg} alt="loading" />,
   };
 
   private rootRef = React.createRef<HTMLDivElement>();
   private rootVe: VisibleElement = null as any;
+
+  get isDefaultSpinner() {
+    return this.props.loader === ReactShadowLoader.defaultProps.loader;
+  }
 
   componentDidMount() {
     const { visible } = this.props;
@@ -53,7 +62,7 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
   }
 
   render() {
-    const { className, visible, fixed, style, zIndex, ...rest } = this.props;
+    const { className, visible, fixed, style, zIndex, loader, ...rest } = this.props;
 
     return (
       <div
@@ -67,10 +76,10 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
         }}
         {...rest}
       >
-        <div className={`${CLASS_NAME}__spinner`} style={{
+        <div className={cx(`${CLASS_NAME}__spinner`, { 'is-default-spinner': this.isDefaultSpinner })} style={{
           zIndex: zIndex! + 1,
         }}>
-          <img src={SpinnerSvg} alt="loading" />
+          {loader}
         </div>
       </div>
     );
