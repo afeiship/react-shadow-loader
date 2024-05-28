@@ -9,7 +9,7 @@ function App() {
   const handleShow = () => setVisible(true);
   const handleHide = () => setVisible(false);
   return (
-    <div className="relative h-[1000px] overflow-hidden">
+    <div className="relative h-[1000px] p-5 overflow-hidden">
       <h1>react-shadow-loader</h1>
       <ReactShadowLoader shadowy permeable loader={isDefault ? undefined : <img src="/logo-spin.gif" alt="logo" />} visible={visible} />
 

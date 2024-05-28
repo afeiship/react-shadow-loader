@@ -6,6 +6,7 @@ import SpinnerSvg from './spinner-1s-200px.svg?svgr';
 
 const CLASS_NAME = 'react-shadow-loader';
 const VERSION = '__VERSION__';
+const defaultLoader = <img className="is-svg-spinner" src={SpinnerSvg} alt="loading" />;
 
 export type ReactShadowLoaderProps = {
   /**
@@ -38,6 +39,7 @@ export type ReactShadowLoaderProps = {
   zIndex?: number;
 } & HTMLAttributes<HTMLDivElement>;
 
+
 export default class ReactShadowLoader extends Component<ReactShadowLoaderProps> {
   static displayName = CLASS_NAME;
   static version = VERSION;
@@ -45,14 +47,14 @@ export default class ReactShadowLoader extends Component<ReactShadowLoaderProps>
     visible: false,
     fixed: false,
     zIndex: 100,
-    loader: <img className="is-svg-spinner" src={SpinnerSvg} alt="loading" />,
+    loader: defaultLoader,
   };
 
   private rootRef = React.createRef<HTMLDivElement>();
   private rootVe: VisibleElement = null as any;
 
   get isDefaultSpinner() {
-    return this.props.loader === ReactShadowLoader.defaultProps.loader;
+    return this.props.loader === defaultLoader;
   }
 
   componentDidMount() {
